@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v2.5.1
       - name: Install Dependencies
         working-directory: /to-do-app
-        run: npm instal
+        run: npm install
       - name: Run Unit Tests
         working-directory: /to-do-app
         run: npm test
