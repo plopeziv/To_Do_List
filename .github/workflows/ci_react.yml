@@ -10,7 +10,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:i
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -20,8 +20,8 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
       - name: Install Dependencies
-        working-directory: /to-do-appgit 
-        run: npm install
+        working-directory: /to-do-app
+        run: npm instal
       - name: Run Unit Tests
         working-directory: /to-do-app
         run: npm test
