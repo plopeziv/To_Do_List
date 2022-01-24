@@ -19,6 +19,6 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
       - name: Run Unit Tests
-        working-directory: /to-do-app
+        working-directory: ./to-do-app
         run: npm test
       
