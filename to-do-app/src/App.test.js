@@ -32,10 +32,10 @@ test("Hello World test", () => {
   expect(hello).toBe("Hello World");
 });
 
-it("renders list title", () => {
+it("renders 'No List Found' if lists has not loaded", () => {
   act(() => {
     render(<App />, container);
   });
 
-  expect(container.textContent).toBe("First List");
+  expect(container.textContent).toBe("No List Found");
 });
