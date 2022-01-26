@@ -31,15 +31,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {lists}
-          </a>
+          <div className="Title-Bar">
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {lists}
+            </a>
+          </div>
+          <div className='To-Do-View'>
+            <img src={logo} className="App-logo" alt="logo" />
+          </div>
         </header>
       </div>);
   }
