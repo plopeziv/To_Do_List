@@ -1,9 +1,28 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
+    "lists": [
+      { "id": 1, "title": "Shopping", "user": "Kseniia", "items": [
+        {"toDoItem": "Buy Shirt", "completed": false},
+        {"toDoItem": "Get Gift", "completed": false},
+        {"toDoitem": "Return Purchase", "completed": true}
+      ] },
+      { "id": 2, "title": "School", "user": "Pedro", "items": [
+        {"toDoItem": "Do homework", "completed": false},
+        {"toDoItem": "Do science project", "completed": false}
+       ] },
+      { "id": 3, "title": "Groceries", "user": "Matt", "items": [
+        {"toDoItem": "apples", "completed": false},
+        {"toDoItem": "chips", "completed": false},
+        {"toDoItem": "beer", "completed": false}
+      ]},
+      { "id": 4, "title": "Water Plants", "user": "Matt", "items": [
+        {"toDoItem": "apples", "completed": false},
+        {"toDoItem": "chips", "completed": false},
+        {"toDoItem": "beer", "completed": false}
+      ]},
+      { "id": 5, "title": "Workout Routine", "user": "Matt", "items": [
+        {"toDoItem": "apples", "completed": false},
+        {"toDoItem": "chips", "completed": false},
+        {"toDoItem": "beer", "completed": false}
+      ]}
+    ]
 }
