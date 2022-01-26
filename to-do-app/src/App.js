@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import ListView from './ListView';
 import './App.css';
 import React, { Component } from 'react';
 
@@ -8,7 +9,7 @@ class App extends Component {
     this.state = {
       jsonData: [],
       isLoaded: false,
-      activeList: ""
+      activeTitle: "School",
     }
   }
 
@@ -21,6 +22,13 @@ class App extends Component {
         isLoaded: true
     })})
   }
+  
+  filterJson(title) {
+    const activeList = this.state.jsonData.filter((json) => {
+      return json.title === title});
+
+    return activeList;
+  }
 
   getTitles() {
     return this.state.jsonData.map(entry => entry.title);
@@ -29,6 +37,8 @@ class App extends Component {
   render() {
     let titles = this.getTitles();
     let lists = this.state.isLoaded ? titles.map(entry => <ul key={entry}>{entry}</ul>) : <ul>No List Found</ul>;
+
+    let active = this.filterJson(this.state.activeTitle)
 
     return (
       <div className="App">
@@ -44,7 +54,9 @@ class App extends Component {
             </a>
           </div>
           <div className='To-Do-View'>
-            <img src={logo} className="App-logo" alt="logo" />
+            <ListView
+              activeList = {active}
+            />
           </div>
         </header>
       </div>);

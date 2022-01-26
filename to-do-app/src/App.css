@@ -23,6 +23,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.List-View{
+  color: black;
+  background-color: blueviolet;
+  height: 100%;
+  width: 100%;
+}
+
+.Active-List{
+  background-color: cadetblue;
+}
 
 .App-link {
   color: #61dafb;
