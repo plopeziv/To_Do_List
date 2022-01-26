@@ -3,15 +3,6 @@ import App from './App';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-const returnedJSON = {
-  "lists": [
-    { "id": 1, "title": "Shopping", "user": "Kseniia", "items": [
-      {"toDoItem": "Buy Shirt", "completed": false},
-      {"toDoItem": "Get Gift", "completed": false},
-      {"toDoitem": "Return Purchase", "completed": true}
-    ] }
-  ]
-}
 let container = null;
 
 beforeEach(() => {
@@ -38,4 +29,26 @@ it("renders 'No List Found' if lists has not loaded", () => {
   });
 
   expect(container.textContent).toBe("No List Found");
+});
+
+it("renders ToDo lists titles", async () => {
+  const fakeJson = 
+   [
+      { "id": 1, "title": "First Test Title"},
+      { "id": 2, "title": "Second Test Title"}
+    ]
+
+  jest.spyOn(global, "fetch").mockImplementation(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(fakeJson)
+    })
+  );
+
+  await act(async () => {
+    render(<App />, container);
+  });
+  
+  expect(container.textContent).toBe("First Test TitleSecond Test Title");
+  
+  global.fetch.mockRestore();
 });

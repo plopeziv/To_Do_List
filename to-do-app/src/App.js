@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,16 +17,18 @@ class App extends React.Component {
     .then(response => response.json())
     .then(json => {
       this.setState({
-        jsonData: json.map(entry=> entry.title),
+        jsonData: json,
         isLoaded: true
-    })
-  })
+    })})
+  }
+
+  getTitles() {
+    return this.state.jsonData.map(entry => entry.title);
   }
 
   render() {
-    let lists = this.state.isLoaded ? this.state.jsonData.map(entry => 
-      <ul key={entry}>{entry}</ul>
-    ) : <ul>No List Found</ul>;
+    let titles = this.getTitles();
+    let lists = this.state.isLoaded ? titles.map(entry => <ul key={entry}>{entry}</ul>) : <ul>No List Found</ul>;
 
     return (
       <div className="App">
