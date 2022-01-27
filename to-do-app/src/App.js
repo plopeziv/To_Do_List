@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       jsonData: [],
       isLoaded: false,
-      activeTitle: "School",
+      activeTitle: "",
     }
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
     const activeList = this.state.jsonData.filter((json) => {
       return json.title === title});
 
-    return activeList;
+    return activeList[0];
   }
 
   getTitles() {
@@ -36,7 +36,8 @@ class App extends Component {
 
   render() {
     let titles = this.getTitles();
-    let lists = this.state.isLoaded ? titles.map(entry => <ul key={entry}>{entry}</ul>) : <ul>No List Found</ul>;
+    let lists = this.state.isLoaded ? titles.map(
+      entry => <ul key={entry}>{entry}</ul>)  : <ul>No List Found</ul>;
 
     let active = this.filterJson(this.state.activeTitle)
 
