@@ -1,5 +1,13 @@
+.Active-List{
+  background-color: cadetblue;
+}
+
 .App {
   text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
 }
 
 .App-logo {
@@ -28,14 +36,26 @@
   color: black;
   height: 100%;
   width: 100%;
+  overflow: scroll;
+  align-items: center;
+  margin-top: 8px;
 }
 
-.Active-List{
-  background-color: cadetblue;
+.List-Item-Container{
+  background-color: rgb(227, 227, 235);
+  border-radius: 10px;
+  margin-bottom: 1px;
+  height: 7.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Logo-Container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Title-Bar{
@@ -66,7 +86,7 @@
   min-width: 400px;
   width: 65vw;
   height: 58vh;
-  border-radius: 16px;
+  border-radius: 12px;
   opacity: 0.91;
   display: flex;
   justify-content: center;

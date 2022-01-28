@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import ListView from './ListView';
 import './App.css';
 import React, { Component } from 'react';

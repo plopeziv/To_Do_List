@@ -9,7 +9,7 @@ class ListItem extends Component {
   render() {
 
     return (
-        <div className="List-View">This is an Item</div>
+        <div className="List-Item-Container">{this.props.itemProperties.toDoItem}</div>
     );
   }
 }

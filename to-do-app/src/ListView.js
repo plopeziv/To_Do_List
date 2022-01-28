@@ -1,3 +1,4 @@
+import ListItem from './ListItem';
 import logo from './logo.svg';
 import React, { Component } from 'react';
 
@@ -11,11 +12,11 @@ class ListView extends Component {
     let view
 
     if (this.props.activeList === undefined) {
-      view = <img src={logo} className="App-logo" alt="logo" /> 
+      view = <div className='Logo-Container'> <img src={logo} className="App-logo" alt="logo" /> </div>
     } else {
       console.log(this.props.activeList.items)
       view = this.props.activeList.items.map(
-        entry => <li key={entry.toDoItem}> {entry.toDoItem}  </li>
+        entry => <ListItem key={entry.toDoItem} itemProperties = {entry}> {entry.toDoItem}  </ListItem>
       )
     }
 
