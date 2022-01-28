@@ -24,7 +24,7 @@ it("renders 'No List Found' if lists has not loaded", () => {
     render(<App />, container);
   });
 
-  expect(container.textContent).toBe("No List Found");
+  expect(container.textContent).toBe("No List Found ");
 });
 
 it("renders ToDo lists titles", async () => {
@@ -44,7 +44,7 @@ it("renders ToDo lists titles", async () => {
     render(<App />, container);
   });
   
-  expect(container.textContent).toBe("First Test TitleSecond Test Title");
+  expect(container.textContent).toBe("First Test TitleSecond Test Title ");
   
   global.fetch.mockRestore();
 });
