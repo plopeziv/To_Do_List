@@ -6,21 +6,13 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       jsonData: [],
       isLoaded: false,
       activeTitle: "",
     }
-  }
 
-  componentDidMount(){
-    fetch("http://localhost:3001/lists/")
-    .then(response => response.json())
-    .then(json => {
-      this.setState({
-        jsonData: json,
-        isLoaded: true
-    })})
   }
   
   filterJson(title) {
@@ -34,10 +26,28 @@ class App extends Component {
     return this.state.jsonData.map(entry => entry.title);
   }
 
+  changeStateTitle(title){
+    this.setState({activeTitle: title})
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3001/lists/")
+    .then(response => response.json())
+    .then(json => {
+      this.setState({
+        jsonData: json,
+        isLoaded: true
+      })
+    })
+  }
+
   render() {
     let titles = this.getTitles();
     let lists = this.state.isLoaded ? titles.map(
-      entry => <ul key={entry}>{entry}</ul>)  : <ul>No List Found</ul>;
+      entry => 
+        <ul key={entry} onClick={() => 
+          this.changeStateTitle(entry)}>{entry}</ul>
+      ): <ul>No List Found</ul>;
 
     let active = this.filterJson(this.state.activeTitle)
 
@@ -47,7 +57,6 @@ class App extends Component {
           <div className="Title-Bar">
             <a
               className="App-link"
-              href="https://reactjs.org"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,6 +1,7 @@
 import App from './App';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
+import {fireEvent} from "@testing-library/react"
 
 let container = null;
 
@@ -17,10 +18,6 @@ afterEach(() => {
   container = null;
 });
 
-test("Hello World test", () => {
-  const hello = "Hello World";
-  expect(hello).toBe("Hello World");
-});
 
 it("renders 'No List Found' if lists has not loaded", () => {
   act(() => {
