@@ -1,15 +1,32 @@
-import logo from './logo.svg';
+import ListView from './ListView';
 import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       jsonData: [],
       isLoaded: false,
-      activeList: ""
+      activeTitle: "",
     }
+
+  }
+  
+  filterJson(title) {
+    const activeList = this.state.jsonData.filter((json) => {
+      return json.title === title});
+
+    return activeList[0];
+  }
+
+  getTitles() {
+    return this.state.jsonData.map(entry => entry.title);
+  }
+
+  changeStateTitle(title){
+    this.setState({activeTitle: title})
   }
 
   componentDidMount(){
@@ -19,16 +36,19 @@ class App extends Component {
       this.setState({
         jsonData: json,
         isLoaded: true
-    })})
-  }
-
-  getTitles() {
-    return this.state.jsonData.map(entry => entry.title);
+      })
+    })
   }
 
   render() {
     let titles = this.getTitles();
-    let lists = this.state.isLoaded ? titles.map(entry => <ul key={entry}>{entry}</ul>) : <ul>No List Found</ul>;
+    let lists = this.state.isLoaded ? titles.map(
+      entry => 
+        <ul key={entry} onClick={() => 
+          this.changeStateTitle(entry)}>{entry}</ul>
+      ): <ul>No List Found</ul>;
+
+    let active = this.filterJson(this.state.activeTitle)
 
     return (
       <div className="App">
@@ -36,7 +56,6 @@ class App extends Component {
           <div className="Title-Bar">
             <a
               className="App-link"
-              href="https://reactjs.org"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -44,7 +63,9 @@ class App extends Component {
             </a>
           </div>
           <div className='To-Do-View'>
-            <img src={logo} className="App-logo" alt="logo" />
+            <ListView
+              activeList = {active}
+            />
           </div>
         </header>
       </div>);

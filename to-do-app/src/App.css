@@ -1,16 +1,22 @@
+.Active-List{
+  background-color: cadetblue;
+}
+
 .App {
   text-align: center;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
 .App-logo {
-  height: 40vmin;
+  height: 38vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
 }
 
 .App-header {
@@ -24,12 +30,46 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.List-Item-Button{
+  width: 7%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.List-Item-Container{
+  background-color: #E9F6FC;
+  border-radius: 10px;
+  margin-bottom: 1px;
+  height: 7.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.List-View{
+  color: black;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.Logo-Container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Remove-Button{
+  height: 65%;
 }
 
 .Title-Bar{
-  min-width: 400px;
+  min-width: 350px;
   width: 65vw;
   height: 7vh;
   border-radius: 16px;
@@ -40,6 +80,28 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
+.To-Do-Space{
+  width: 80%;
+  overflow: scroll;
+}
+
+.To-Do-View {
+  background-color: azure;
+  min-width: 350px;
+  width: 65vw;
+  height: 58vh;
+  border-radius: 12px;
+  opacity: 0.91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: inline;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 1.2vh;
@@ -49,22 +111,6 @@
   border-radius: 5px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-.To-Do-View {
-  background-color: azure;
-  min-width: 400px;
-  width: 65vw;
-  height: 58vh;
-  border-radius: 16px;
-  opacity: 0.91;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-ul {
-  display: inline;
 }
 
 @keyframes App-logo-spin {
