@@ -85,6 +85,7 @@
 
 .To-Do-Space{
   width: 80%;
+  overflow: scroll;
 }
 
 .To-Do-View {
