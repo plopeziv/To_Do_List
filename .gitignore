@@ -39,3 +39,6 @@ yarn-error.log*
 # Ignore all local history of files
 .history
 .ionide
+
+### JSON Database
+/json_server/db.json
