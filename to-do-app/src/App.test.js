@@ -1,30 +1,12 @@
 import App from './App';
-import { render, unmountComponentAtNode } from "react-dom";
+import React from 'react';
 import { act } from "react-dom/test-utils";
-import {fireEvent} from "@testing-library/react"
-
-let container = null;
-
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
+import { react, render, fireEvent, waitFor, screen } from "@testing-library/react"
 
 it("renders 'No List Found' if lists has not loaded", () => {
-  act(() => {
-    render(<App />, container);
-  });
+  render(<App />);
 
-  expect(container.textContent).toBe("No List Found ");
+  expect(screen.getByRole('list')).toHaveTextContent("No List Found");
 });
 
 it("renders ToDo lists titles", async () => {
@@ -39,12 +21,16 @@ it("renders ToDo lists titles", async () => {
       json: () => Promise.resolve(fakeJson)
     })
   );
-
+    
   await act(async () => {
-    render(<App />, container);
-  });
-  
-  expect(container.textContent).toBe("First Test TitleSecond Test Title ");
-  
+            render(<App />);
+      });
+
+  const lists = screen.getAllByRole('list');
+
+  expect(lists).toHaveLength(2);
+  expect(lists[0]).toHaveTextContent(/First Test Title/i);
+  expect(lists[1]).toHaveTextContent(/Second Test Title/i);
+
   global.fetch.mockRestore();
 });
