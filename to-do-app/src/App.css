@@ -32,6 +32,24 @@
   color: white;
 }
 
+.List-Item-Button{
+  width: 7%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.List-Item-Container{
+  background-color: #e3e3e4;
+  border-radius: 10px;
+  margin-bottom: 1px;
+  height: 7.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .List-View{
   color: black;
   height: 100%;
@@ -41,16 +59,6 @@
   margin-top: 8px;
 }
 
-.List-Item-Container{
-  background-color: rgb(227, 227, 235);
-  border-radius: 10px;
-  margin-bottom: 1px;
-  height: 7.5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .Logo-Container{
   height: 100%;
   display: flex;
@@ -58,8 +66,12 @@
   justify-content: center;
 }
 
+.Remove-Button{
+  height: 65%;
+}
+
 .Title-Bar{
-  min-width: 400px;
+  min-width: 350px;
   width: 65vw;
   height: 7vh;
   border-radius: 16px;
@@ -70,20 +82,14 @@
   align-items: center;
   margin-bottom: 10px;
 }
-::-webkit-scrollbar {
-  width: 0px;
-  height: 1.2vh;
-}
 
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: rgba(0,0,0,.5);
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+.To-Do-Space{
+  width: 80%;
 }
 
 .To-Do-View {
   background-color: azure;
-  min-width: 400px;
+  min-width: 350px;
   width: 65vw;
   height: 58vh;
   border-radius: 12px;
@@ -95,6 +101,17 @@
 
 ul {
   display: inline;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 1.2vh;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
 @keyframes App-logo-spin {

@@ -14,7 +14,6 @@ class ListView extends Component {
     if (this.props.activeList === undefined) {
       view = <div className='Logo-Container'> <img src={logo} className="App-logo" alt="logo" /></div>
     } else {
-      console.log(this.props.activeList.items)
       view = this.props.activeList.items.map(
         entry => <ListItem key={entry.toDoItem} itemProperties = {entry}></ListItem>
       )
