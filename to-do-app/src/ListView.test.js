@@ -30,6 +30,9 @@ test("renders appropriate number of list items", () => {
 
     render(<ListView activeList = {filteredJson}/>);
   
+    const inputForm = screen.getAllByRole("textbox");
+
+    expect(inputForm).toHaveLength(1);
     expect(screen.getByText(/First Item/i)).toBeInTheDocument();
     expect(screen.getByText(/Second Item/i)).toBeInTheDocument();
   });

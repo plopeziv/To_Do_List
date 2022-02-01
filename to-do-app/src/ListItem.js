@@ -9,7 +9,7 @@ class ListItem extends Component {
 
     return (
         <div className="List-Item-Container">
-            <img src="/remove.png" className="Remove-Button"></img>
+            <img src="/minus-button.png" className="Action-Button"></img>
             <div className = "To-Do-Space">{this.props.itemProperties.toDoItem}</div>
             <div className = "List-Item-Button">
                 <input type="checkbox" className='List-Checkbox'></input>

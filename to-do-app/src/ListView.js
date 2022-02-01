@@ -1,5 +1,5 @@
 import ListItem from './ListItem';
-import logo from './logo.svg';
+import ActionForm from './ActionForm';
 import React, { Component } from 'react';
 
 class ListView extends Component {
@@ -13,13 +13,19 @@ class ListView extends Component {
     if (this.props.activeList === undefined) {
       view = <div className='Logo-Container'> <img src="/8L.png" className="App-logo" alt="logo" /></div>;
     } else {
-      view = this.props.activeList.items.map(
-        entry => <ListItem key={entry.toDoItem} itemProperties = {entry}></ListItem>
-      )
+      const items = this.props.activeList.items.map(
+        entry => <ListItem key={entry.toDoItem} itemProperties = {entry}></ListItem>)
+      
+      view = <>
+        <ActionForm/>
+        {items}
+      </>
     }
 
     return (
-        <div className="List-View">{view}</div>
+        <div className="List-View">
+          {view}
+        </div>
     );
   }
 }
