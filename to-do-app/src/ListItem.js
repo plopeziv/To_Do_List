@@ -5,7 +5,6 @@ class ListItem extends Component {
     super(props);
   }
 
-
   render() {
 
     return (
