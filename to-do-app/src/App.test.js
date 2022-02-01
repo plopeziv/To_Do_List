@@ -1,7 +1,7 @@
 import App from './App';
 import React from 'react';
 import { shallow } from "enzyme";
-import { act } from "react-dom/test-utils";
+import { act, renderIntoDocument } from "react-dom/test-utils";
 import { render, screen } from "@testing-library/react"
 
 beforeEach(() => {
@@ -66,4 +66,33 @@ test("changes active title on click", async () => {
   wrapper.find('ul').first().simulate('click');
  
   expect(wrapper.state().activeTitle).toBe("First Test Title");
+})
+
+test("renders submit button", () => {
+  render(<App />);
+
+  const button = screen.getByRole("button");
+
+  expect(button).toBeInTheDocument();
+  expect(button).toHaveTextContent("Submit");
+})
+
+test("submit button is disabled if there is no active lists", () => {
+  render(<App />);
+
+  const button = screen.getByRole("button");
+
+  expect(button).toBeDisabled();
+})
+
+test("submit button is enabled if list is active", async () => {
+  const wrapper = shallow(<App/>);
+
+  await act(async () => {
+    render(<App />);
+  });
+
+  wrapper.find('ul').first().simulate('click');
+
+  expect(wrapper.find('button').prop('disabled')).toEqual(false);
 })

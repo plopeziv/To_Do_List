@@ -42,6 +42,14 @@ class App extends Component {
 
   render() {
     let titles = this.getTitles();
+    let isDisabled;
+   
+    if (!this.state.activeTitle) {
+      isDisabled = true
+    } else {
+      isDisabled = false
+    }
+    
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <ul key={entry} onClick={() => 
@@ -67,6 +75,7 @@ class App extends Component {
               activeList = {active}
             />
           </div>
+          <button className='Submit-Button' disabled={isDisabled}>Submit</button>
         </header>
       </div>);
   }

@@ -1,3 +1,7 @@
+.Action-Button{
+  height: 53%;
+}
+
 .Action-Input{
   box-sizing: border-box;
   border: transparent;
@@ -84,13 +88,20 @@
   justify-content: center;
 }
 
-.Action-Button{
-  height: 53%;
+.Submit-Button{
+  margin-top: 2.5vh;
+  height:7vh;
+  width: 55vw;
+  min-width: 296px;
+  max-width: 780px;
+  border-radius: 12px;
+  font-size: calc(15px + 2vmin);
 }
 
 .Title-Bar{
   min-width: 350px;
   width: 65vw;
+  max-width: 900px;
   height: 7vh;
   border-radius: 16px;
   display: flex;
@@ -112,6 +123,7 @@
 .To-Do-View {
   background-color: azure;
   min-width: 350px;
+  max-width: 900px;
   width: 65vw;
   height: 58vh;
   border-radius: 12px;
@@ -134,13 +146,4 @@ ul {
   border-radius: 5px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
