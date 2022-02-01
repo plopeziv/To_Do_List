@@ -2,7 +2,7 @@ import App from './App';
 import React from 'react';
 import { shallow } from "enzyme";
 import { act } from "react-dom/test-utils";
-import { react, render, fireEvent, waitFor, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 beforeEach(() => {
   const fakeJson = 
@@ -28,13 +28,13 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-it("renders 'No List Found' if lists has not loaded", () => {
+test("renders 'No List Found' if lists has not loaded", () => {
   render(<App />);
 
   expect(screen.getByRole('list')).toHaveTextContent("No List Found");
 });
 
-it("renders ToDo lists titles", async () => {
+test("renders ToDo lists titles", async () => {
   await act(async () => {
     render(<App />);
   });
