@@ -1,7 +1,7 @@
 import App from './App';
 import React from 'react';
 import { shallow } from "enzyme";
-import { act, renderIntoDocument } from "react-dom/test-utils";
+import { act } from "react-dom/test-utils";
 import { render, screen } from "@testing-library/react"
 
 beforeEach(() => {
@@ -95,4 +95,23 @@ test("submit button is enabled if list is active", async () => {
   wrapper.find('ul').first().simulate('click');
 
   expect(wrapper.find('button').prop('disabled')).toEqual(false);
+})
+
+test("calls the updateActiveList integration test", async () => {
+  const spy = jest.spyOn(App.prototype, "updateActiveList");
+  const wrapper = shallow(<App/>);
+
+  await act(async () => {
+    render(<App />);
+  });
+
+  expect(wrapper.find('button').prop('disabled')).toEqual(true);
+
+  wrapper.find('ul').first().simulate('click');
+
+  expect(wrapper.find('button').prop('disabled')).toEqual(false);
+
+  wrapper.find("button").simulate("click")
+
+  expect(App.prototype.updateActiveList).toHaveBeenCalledTimes(1);
 })
