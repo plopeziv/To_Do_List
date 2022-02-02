@@ -12,6 +12,7 @@ class App extends Component {
       activeTitle: "",
     }
 
+    this.submitHandler = this.updateActiveList.bind(this)
   }
   
   filterJson(title) {
@@ -29,6 +30,13 @@ class App extends Component {
     this.setState({activeTitle: title})
   }
 
+  updateActiveList() {
+    let list = this.filterJson(this.state.activeTitle);
+    const url = `http://localhost:3001/lists/${list.id}`;
+
+    return fetch(url, {method: "PUT", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
+  }
+
   componentDidMount(){
     fetch("http://localhost:3001/lists/")
     .then(response => response.json())
@@ -40,8 +48,16 @@ class App extends Component {
     })
   }
 
-  render() {
+render() {
     let titles = this.getTitles();
+    let isDisabled;
+   
+    if (!this.state.activeTitle) {
+      isDisabled = true
+    } else {
+      isDisabled = false
+    }
+    
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <ul key={entry} onClick={() => 
@@ -67,6 +83,7 @@ class App extends Component {
               activeList = {active}
             />
           </div>
+          <button className='Submit-Button' disabled={isDisabled} onClick={this.submitHandler}>Submit</button>
         </header>
       </div>);
   }

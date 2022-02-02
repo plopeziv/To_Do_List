@@ -13,8 +13,11 @@ class ListView extends Component {
     if (this.props.activeList === undefined) {
       view = <div className='Logo-Container'> <img src="/8L.png" className="App-logo" alt="logo" /></div>;
     } else {
-      const items = this.props.activeList.items.map(
-        entry => <ListItem key={entry.toDoItem} itemProperties = {entry}></ListItem>)
+        const items = this.props.activeList.items.map(
+        entry => <ListItem 
+          key={entry.toDoItem} 
+          itemProperties = {entry}>
+        </ListItem>)
       
       view = <>
         <ActionForm/>
