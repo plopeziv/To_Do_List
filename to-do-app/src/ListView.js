@@ -20,7 +20,7 @@ class ListView extends Component {
         </ListItem>)
       
       view = <>
-        <ActionForm/>
+        <ActionForm itemProperties = {this.props.activeList.items}/>
         {items}
       </>
     }
