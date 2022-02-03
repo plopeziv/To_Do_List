@@ -18,7 +18,7 @@ test("renders form for a new item", () => {
 
   expect(form).toHaveLength(1);
 
-  const textbox = screen.getByPlaceholderText("New To-Do Item");
+  const textbox = screen.getByPlaceholderText("Enter New To-Do Item");
 
   expect(textbox).toBeInTheDocument();
 });

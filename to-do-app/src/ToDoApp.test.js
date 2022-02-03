@@ -100,8 +100,8 @@ test("submit button is enabled if list is active", async () => {
   expect(wrapper.find('button').prop('disabled')).toEqual(false);
 })
 
-test("calls the updateActiveList integration test", async () => {
-  const spy = jest.spyOn(ToDoApp.prototype, "updateActiveList");
+test("calls the putActiveList integration test", async () => {
+  const spy = jest.spyOn(ToDoApp.prototype, "putActiveList");
   const wrapper = shallow(<ToDoApp/>);
 
   await act(async () => {
@@ -116,5 +116,5 @@ test("calls the updateActiveList integration test", async () => {
 
   wrapper.find("button").simulate("click");
 
-  expect(ToDoApp.prototype.updateActiveList).toHaveBeenCalledTimes(1);
+  expect(ToDoApp.prototype.putActiveList).toHaveBeenCalledTimes(1);
 })

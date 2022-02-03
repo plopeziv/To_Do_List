@@ -11,7 +11,7 @@ class ToDoApp extends Component {
       isLoaded: false
     }
 
-    this.submitHandler = this.updateActiveList.bind(this);
+    this.submitHandler = this.putActiveList.bind(this);
     this.saveActiveListHander = this.changeActiveList.bind(this);
   }
   
@@ -30,7 +30,7 @@ class ToDoApp extends Component {
     this.setState({activeList: list});
   }
 
-  updateActiveList() {
+  putActiveList() {
     let list = this.state.activeList;
     const url = `http://localhost:3001/lists/${list.id}`;
 
