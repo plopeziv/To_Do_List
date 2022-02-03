@@ -8,11 +8,11 @@ class App extends Component {
 
     this.state = {
       jsonData: [],
-      isLoaded: false,
-      activeTitle: "",
+      isLoaded: false
     }
 
-    this.submitHandler = this.updateActiveList.bind(this)
+    this.submitHandler = this.updateActiveList.bind(this);
+    this.saveActiveListHander = this.changeActiveList.bind(this);
   }
   
   filterJson(title) {
@@ -26,18 +26,18 @@ class App extends Component {
     return this.state.jsonData.map(entry => entry.title);
   }
 
-  changeStateTitle(title){
-    this.setState({activeTitle: title})
+  changeActiveList(list) {
+    this.setState({activeList: list});
   }
 
   updateActiveList() {
-    let list = this.filterJson(this.state.activeTitle);
+    let list = this.state.activeList;
     const url = `http://localhost:3001/lists/${list.id}`;
 
     return fetch(url, {method: "PUT", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch("http://localhost:3001/lists/")
     .then(response => response.json())
     .then(json => {
@@ -52,19 +52,17 @@ render() {
     let titles = this.getTitles();
     let isDisabled;
    
-    if (!this.state.activeTitle) {
-      isDisabled = true
+    if (!this.state.activeList) {
+      isDisabled = true;
     } else {
-      isDisabled = false
+      isDisabled = false;
     }
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <ul key={entry} onClick={() => 
-          this.changeStateTitle(entry)}>{entry}</ul>
+          this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
       ): <ul>No List Found</ul>;
-
-    let active = this.filterJson(this.state.activeTitle)
 
     return (
       <div className="App">
@@ -80,7 +78,8 @@ render() {
           </div>
           <div className='To-Do-View'>
             <ListView
-              activeList = {active}
+              activeList = {this.state.activeList}
+              saveActiveList = {this.saveActiveListHander}
             />
           </div>
           <button className='Submit-Button' disabled={isDisabled} onClick={this.submitHandler}>Submit</button>
