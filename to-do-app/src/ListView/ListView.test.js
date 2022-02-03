@@ -11,12 +11,12 @@ test("renders logo if active list is empty", () => {
 });
 
 test("renders appropriate number of list items", () => {
-    const filteredJson = {"title": "First Test Title", "items": [
+    const testList = {"title": "First Test Title", "items": [
         {"toDoItem": "First Item", "completed": false},
         {"toDoItem": "Second Item", "completed": false},
         {"toDoItem": "Third", "completed": false}]}
 
-    render(<ListView activeList = {filteredJson}/>);
+    render(<ListView activeList = {testList}/>);
   
     const items = screen.getAllByRole("checkbox");
 
@@ -24,11 +24,11 @@ test("renders appropriate number of list items", () => {
   });
 
   test("renders items from to-do list", () => {
-    const filteredJson = {"title": "First Test Title", "items": [
+    const testList = {"title": "First Test Title", "items": [
         {"toDoItem": "First Item", "completed": false},
         {"toDoItem": "Second Item", "completed": false}]}
 
-    render(<ListView activeList = {filteredJson}/>);
+    render(<ListView activeList = {testList}/>);
   
     const inputForm = screen.getAllByRole("textbox");
 

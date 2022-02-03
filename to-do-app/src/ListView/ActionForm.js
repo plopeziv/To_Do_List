@@ -12,7 +12,11 @@ class ActionForm extends Component {
   }
   
   cilckAction() {
-    let newItem = {"toDoItem": this.state.actionFormValue, "completed": false}
+    if (this.state.actionFormValue == "") {
+      return;
+    }
+
+    let newItem = {"toDoItem": this.state.actionFormValue, "completed": false};
     let id = this.props.activeList.items.length;
 
     this.props.activeList.items[id] = newItem;
@@ -25,15 +29,16 @@ class ActionForm extends Component {
     return (
         <div className="List-Item-Container">
             <img src="/plus.png" 
-            className="Action-Button" 
-            onClick={this.handlePlus}
-            >
-
+              className="Action-Button" 
+              onClick={this.handlePlus}>
             </img>
             <div className = "To-Do-Space">
               <form className='Action-Form'>
-                <input className="Action-Input" type="text" value={this.state.actionFormValue} placeholder='New To-Do Item'
-                onChange = {event => this.setState({actionFormValue: event.target.value})}></input>
+                <input 
+                  className="Action-Input" type="text" 
+                  value={this.state.actionFormValue} placeholder='Enter New To-Do Item'
+                  onChange = {event => this.setState({actionFormValue: event.target.value})}>
+                </input>
               </form>
             </div>
             <div className = "List-Item-Button"/>

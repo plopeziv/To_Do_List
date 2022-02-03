@@ -8,7 +8,7 @@ class ListItem extends Component {
   }
   
   updateItemStatus() {
-    this.props.itemProperties.completed = !this.props.itemProperties.completed
+    this.props.itemProperties.completed = !this.props.itemProperties.completed;
   }
   
   render() {

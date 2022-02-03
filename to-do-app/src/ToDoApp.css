@@ -135,6 +135,11 @@
 
 ul {
   display: inline;
+  
+}
+
+ul:hover{
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {

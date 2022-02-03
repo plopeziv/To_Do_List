@@ -1,8 +1,8 @@
-import ListView from './ListView';
-import './App.css';
+import ListView from './ListView/ListView';
+import './ToDoApp.css';
 import React, { Component } from 'react';
 
-class App extends Component {
+class ToDoApp extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +11,7 @@ class App extends Component {
       isLoaded: false
     }
 
-    this.submitHandler = this.updateActiveList.bind(this);
+    this.submitHandler = this.putActiveList.bind(this);
     this.saveActiveListHander = this.changeActiveList.bind(this);
   }
   
@@ -30,7 +30,7 @@ class App extends Component {
     this.setState({activeList: list});
   }
 
-  updateActiveList() {
+  putActiveList() {
     let list = this.state.activeList;
     const url = `http://localhost:3001/lists/${list.id}`;
 
@@ -88,4 +88,4 @@ render() {
   }
 }
 
-export default App;
+export default ToDoApp;

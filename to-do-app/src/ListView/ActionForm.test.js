@@ -18,18 +18,18 @@ test("renders form for a new item", () => {
 
   expect(form).toHaveLength(1);
 
-  const textbox = screen.getByPlaceholderText("New To-Do Item");
+  const textbox = screen.getByPlaceholderText("Enter New To-Do Item");
 
   expect(textbox).toBeInTheDocument();
 });
 
 test("adds a new item to the active list", () => {
-  const filteredJson = { "id": 1, "title": "Dummy Title", "items": 
+  const testList = { "id": 1, "title": "Dummy Title", "items": 
                       [ {"toDoItem": "First Item", "completed": false} ] }
 
-  const wrapper = shallow(<ActionForm activeList={filteredJson} saveActiveList={() => null}/>);
+  const wrapper = shallow(<ActionForm activeList={testList} saveActiveList={() => null}/>);
   
-  render(<ActionForm activeList={filteredJson} saveActiveList={() => null}/>);
+  render(<ActionForm activeList={testList} saveActiveList={() => null}/>);
 
   const inputForm = wrapper.find("input");
 
