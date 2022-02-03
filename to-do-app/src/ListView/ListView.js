@@ -16,6 +16,8 @@ class ListView extends Component {
         const items = this.props.activeList.items.map(
         entry => <ListItem 
           key={entry.toDoItem} 
+          activeList = {this.props.activeList}
+          saveActiveList = {this.props.saveActiveList}
           itemProperties = {entry}>
         </ListItem>)
       

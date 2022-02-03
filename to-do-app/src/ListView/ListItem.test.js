@@ -66,3 +66,21 @@ test("changes the status of active list", () => {
 
   expect(wrapper.instance().props.itemProperties).toStrictEqual({"toDoItem": "First Item", "completed": true});
 });
+
+test("removes an item from active list", () => {
+  const testList = { "id": 1, "title": "Dummy Title", "items": 
+                      [ {"toDoItem": "First Item", "completed": false},
+                        {"toDoItem": "Should Be Deleted", "completed": false} ] }
+
+  const itemToDelete = {"toDoItem": "Should Be Deleted", "completed": false}
+
+  const wrapper = shallow(<ListItem activeList={testList} saveActiveList={(list) => list} itemProperties={itemToDelete}/>);
+  
+  render(<ListItem activeList={testList} saveActiveList={(list) => list} itemProperties={itemToDelete}/>);
+
+  wrapper.find("img").simulate("click");
+
+  const expected = {"id": 1, "title": "Dummy Title", "items": [{"completed": false, "toDoItem": "First Item"}]}
+  
+  expect(wrapper.instance().props.activeList).toEqual(expected);
+});
