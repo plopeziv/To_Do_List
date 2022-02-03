@@ -1,8 +1,8 @@
 import ListView from './ListView/ListView';
-import './App.css';
+import './ToDoApp.css';
 import React, { Component } from 'react';
 
-class App extends Component {
+class ToDoApp extends Component {
   constructor(props) {
     super(props);
 
@@ -88,4 +88,4 @@ render() {
   }
 }
 
-export default App;
+export default ToDoApp;

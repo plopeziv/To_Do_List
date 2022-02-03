@@ -1,4 +1,4 @@
-import App from './App';
+import ToDoApp from './ToDoApp';
 import React from 'react';
 import { shallow } from "enzyme";
 import { act } from "react-dom/test-utils";
@@ -29,14 +29,14 @@ afterEach(() => {
 });
 
 test("renders 'No List Found' if lists has not loaded", () => {
-  render(<App />);
+  render(<ToDoApp />);
 
   expect(screen.getByRole('list')).toHaveTextContent("No List Found");
 });
 
 test("renders ToDo lists titles", async () => {
   await act(async () => {
-    render(<App />);
+    render(<ToDoApp />);
   });
 
   const lists = screen.getAllByRole('list');
@@ -49,7 +49,7 @@ test("renders ToDo lists titles", async () => {
 });
 
 test("changeActiveList changes activeList", async () => {
-  const wrapper = shallow(<App/>);
+  const wrapper = shallow(<ToDoApp/>);
 
   const testList = { "id": 1, "title": "Dummy Title", "items": 
         [ {"toDoItem": "First Item", "completed": false} ] }
@@ -60,10 +60,10 @@ test("changeActiveList changes activeList", async () => {
 })
 
 test("changes active list on click", async () => {
-  const wrapper = shallow(<App/>);
+  const wrapper = shallow(<ToDoApp/>);
 
   await act(async () => {
-    render(<App />);
+    render(<ToDoApp />);
   });
 
   wrapper.find('ul').first().simulate('click');
@@ -72,7 +72,7 @@ test("changes active list on click", async () => {
 })
 
 test("renders submit button", () => {
-  render(<App />);
+  render(<ToDoApp />);
 
   const button = screen.getByRole("button");
 
@@ -81,7 +81,7 @@ test("renders submit button", () => {
 })
 
 test("submit button is disabled if there is no active lists", () => {
-  render(<App />);
+  render(<ToDoApp />);
 
   const button = screen.getByRole("button");
 
@@ -89,10 +89,10 @@ test("submit button is disabled if there is no active lists", () => {
 })
 
 test("submit button is enabled if list is active", async () => {
-  const wrapper = shallow(<App/>);
+  const wrapper = shallow(<ToDoApp/>);
 
   await act(async () => {
-    render(<App />);
+    render(<ToDoApp />);
   });
 
   wrapper.find('ul').first().simulate('click');
@@ -101,11 +101,11 @@ test("submit button is enabled if list is active", async () => {
 })
 
 test("calls the updateActiveList integration test", async () => {
-  const spy = jest.spyOn(App.prototype, "updateActiveList");
-  const wrapper = shallow(<App/>);
+  const spy = jest.spyOn(ToDoApp.prototype, "updateActiveList");
+  const wrapper = shallow(<ToDoApp/>);
 
   await act(async () => {
-    render(<App />);
+    render(<ToDoApp />);
   });
 
   expect(wrapper.find('button').prop('disabled')).toEqual(true);
@@ -114,7 +114,7 @@ test("calls the updateActiveList integration test", async () => {
 
   expect(wrapper.find('button').prop('disabled')).toEqual(false);
 
-  wrapper.find("button").simulate("click")
+  wrapper.find("button").simulate("click");
 
-  expect(App.prototype.updateActiveList).toHaveBeenCalledTimes(1);
+  expect(ToDoApp.prototype.updateActiveList).toHaveBeenCalledTimes(1);
 })
