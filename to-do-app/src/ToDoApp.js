@@ -60,8 +60,11 @@ render() {
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
-        <ul key={entry} onClick={() => 
+        <div className="Pedro">
+          <img className= "Remove-List-Image" src="./remove-2.png"/>
+          <ul key={entry} onClick={() => 
           this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
+        </div>
       ): <ul>No List Found</ul>;
 
     return (

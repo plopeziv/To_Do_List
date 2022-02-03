@@ -31,6 +31,9 @@
 }
 
 .App-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
   color: #61dafb;
 }
 
@@ -88,6 +91,22 @@
   justify-content: center;
 }
 
+.Pedro{
+  display: inline;
+  background-color: #4c535a;
+  height: 100%;
+  border-radius: 10px;
+  margin-right: 10px;
+  padding-right: 9px;
+}
+
+.Remove-List-Image{
+  height: calc(5px + 2vmin);
+  margin-right: 10px;
+  margin-left: 3px;
+  margin-top: 7px;
+}
+
 .Submit-Button{
   margin-top: 2.5vh;
   height:7vh;
@@ -102,7 +121,7 @@
   min-width: 350px;
   width: 65vw;
   max-width: 900px;
-  height: 7vh;
+  height: 5.5vh;
   border-radius: 16px;
   display: flex;
   white-space: nowrap;
@@ -134,8 +153,7 @@
 }
 
 ul {
-  display: inline;
-  
+  display: contents;
 }
 
 ul:hover{
