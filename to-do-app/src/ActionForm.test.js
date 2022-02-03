@@ -24,11 +24,12 @@ test("renders form for a new item", () => {
 });
 
 test("adds a new item to the active list", () => {
-  const filteredJson = [{"toDoItem": "First Item", "completed": false}]
+  const filteredJson = { "id": 1, "title": "Dummy Title", "items": 
+                      [ {"toDoItem": "First Item", "completed": false} ] }
 
-  const wrapper = shallow(<ActionForm itemProperties={filteredJson}/>);
+  const wrapper = shallow(<ActionForm activeList={filteredJson} saveActiveList={() => null}/>);
   
-  render(<ActionForm itemProperties={filteredJson}/>);
+  render(<ActionForm activeList={filteredJson} saveActiveList={() => null}/>);
 
   const inputForm = wrapper.find("input");
 
@@ -38,7 +39,7 @@ test("adds a new item to the active list", () => {
 
   wrapper.find("img").simulate("click");
 
-  const expected = [{"toDoItem": "First Item", "completed": false}, {"toDoItem": "New Item", "completed": false},]
+  const expected = {"id": 1, "items": [{"completed": false, "toDoItem": "First Item"}, {"completed": false, "toDoItem": "New Item"}], "title": "Dummy Title"}
   
-  expect(wrapper.instance().props.itemProperties).toStrictEqual(expected);
+  expect(wrapper.instance().props.activeList).toStrictEqual(expected);
 });

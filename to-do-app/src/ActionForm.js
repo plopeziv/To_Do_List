@@ -13,12 +13,12 @@ class ActionForm extends Component {
   
   cilckAction() {
     let newItem = {"toDoItem": this.state.actionFormValue, "completed": false}
-    let id = this.props.itemProperties.length;
+    let id = this.props.activeList.items.length;
 
-    this.props.itemProperties[id] = newItem;
-
+    this.props.activeList.items[id] = newItem;
+    this.props.saveActiveList(this.props.activeList);
+  
     this.setState({actionFormValue: ""});
-    this.forceUpdate();
   }
 
   render() {

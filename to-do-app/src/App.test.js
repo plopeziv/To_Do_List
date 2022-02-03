@@ -48,15 +48,18 @@ test("renders ToDo lists titles", async () => {
   global.fetch.mockRestore();
 });
 
-test("changeStateTitle changes activeTitle", async () => {
+test("changeActiveList changes activeList", async () => {
   const wrapper = shallow(<App/>);
 
-  wrapper.instance().changeStateTitle("Dummy Title");
+  const testList = { "id": 1, "title": "Dummy Title", "items": 
+        [ {"toDoItem": "First Item", "completed": false} ] }
 
-  expect(wrapper.state().activeTitle).toBe("Dummy Title");
+  wrapper.instance().changeActiveList(testList);
+
+  expect(wrapper.state().activeList.title).toBe("Dummy Title");
 })
 
-test("changes active title on click", async () => {
+test("changes active list on click", async () => {
   const wrapper = shallow(<App/>);
 
   await act(async () => {
@@ -65,7 +68,7 @@ test("changes active title on click", async () => {
 
   wrapper.find('ul').first().simulate('click');
  
-  expect(wrapper.state().activeTitle).toBe("First Test Title");
+  expect(wrapper.state().activeList.title).toBe("First Test Title");
 })
 
 test("renders submit button", () => {
