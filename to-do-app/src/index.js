@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ToDoApp from './App';
+import ToDoApp from './ToDoApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
