@@ -1,5 +1,5 @@
 import ListView from './ListView/ListView';
-import NewList from './NewList';
+import NewList from './ListView/NewList';
 import './ToDoApp.css';
 import React, { Component } from 'react';
 
@@ -16,6 +16,7 @@ class ToDoApp extends Component {
     this.saveActiveListHander = this.changeActiveList.bind(this);
     this.createNewListHandler = this.postNewList.bind(this);
     this.getAllListsHandler = this.getAllLists.bind(this);
+    this.deleteListHandler = this.deleteActiveList.bind(this);
   }
   
   filterLists(title) {
@@ -46,6 +47,24 @@ class ToDoApp extends Component {
     return fetch(url, {method: "POST", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
   }
 
+  deleteActiveList() {
+    this.deleteList();
+    this.changeActiveList(undefined);
+    this.setState({ isLoaded: false })
+    this.getAllLists();
+  }
+
+  deleteList() {
+    if (this.state.activeList == undefined) {
+      return;
+    }
+
+    let list = this.state.activeList;
+    const url = `http://localhost:3001/lists/${list.id}`;
+
+    return fetch(url, {method: "DELETE", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
+  }
+
   getAllLists() {
     fetch("http://localhost:3001/lists/")
     .then(response => response.json())
@@ -74,12 +93,12 @@ class ToDoApp extends Component {
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
-        <div className="Title-Tab">
-          <img className= "List-Image" src="./remove-list.png"/>
-          <ul key={entry} onClick={() => 
+        <div key={entry} className="Title-Tab">
+          <img className= "List-Image" src="./remove-list.png" onClick={this.deleteListHandler}/>
+          <ul onClick={() => 
             this.changeActiveList(this.filterLists(entry))}>{entry}</ul>
         </div>
-      ): <ul>No List Found</ul>;
+      ): <ul></ul>;
 
     return (
       <div className="App">
