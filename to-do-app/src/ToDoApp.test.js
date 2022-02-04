@@ -34,7 +34,7 @@ test("renders 'No List Found' if lists has not loaded", () => {
   expect(screen.getByRole('list')).toHaveTextContent("No List Found");
 });
 
-test("renders ToDo lists titles", async () => {
+test("renders ToDo lists titles in reverse order", async () => {
   await act(async () => {
     render(<ToDoApp />);
   });
@@ -42,9 +42,9 @@ test("renders ToDo lists titles", async () => {
   const lists = screen.getAllByRole('list');
 
   expect(lists).toHaveLength(2);
-  expect(lists[0]).toHaveTextContent(/First Test Title/i);
-  expect(lists[1]).toHaveTextContent(/Second Test Title/i);
-
+  expect(lists[0]).toHaveTextContent(/Second Test Title/i);
+  expect(lists[1]).toHaveTextContent(/First Test Title/i);
+  
   global.fetch.mockRestore();
 });
 
@@ -68,7 +68,7 @@ test("changes active list on click", async () => {
 
   wrapper.find('ul').first().simulate('click');
  
-  expect(wrapper.state().activeList.title).toBe("First Test Title");
+  expect(wrapper.state().activeList.title).toBe("Second Test Title");
 })
 
 test("renders submit button", () => {

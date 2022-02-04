@@ -31,7 +31,9 @@
 }
 
 .App-link {
-  color: #61dafb;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .App-logo {
@@ -88,6 +90,13 @@
   justify-content: center;
 }
 
+.List-Image{
+  height: calc(5px + 2vmin);
+  margin-right: 10px;
+  margin-left: 8px;
+  margin-top: 7px;
+}
+
 .Submit-Button{
   margin-top: 2.5vh;
   height:7vh;
@@ -102,7 +111,7 @@
   min-width: 350px;
   width: 65vw;
   max-width: 900px;
-  height: 7vh;
+  height: 5.5vh;
   border-radius: 16px;
   display: flex;
   white-space: nowrap;
@@ -110,6 +119,28 @@
   overflow: scroll;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.Title-Input{
+  font-size: calc(10px + 2vmin);
+  color: #61dafb;
+  width: calc(180px + 2vmin);
+  box-sizing: border-box;
+  border: transparent;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  text-align: center;
+}
+
+.Title-Tab{
+  background-color: #4c535a;
+  color: #61dafb;
+  height: 100%;
+  border-radius: 10px;
+  margin-right: 10px;
+  padding-right: 9px;
+  vertical-align: middle;
 }
 
 .To-Do-Space{
@@ -134,8 +165,7 @@
 }
 
 ul {
-  display: inline;
-  
+  display: contents;
 }
 
 ul:hover{

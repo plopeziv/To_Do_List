@@ -18,7 +18,7 @@ test("renders remove button image", () => {
 
   const image = screen.getByRole("img");
 
-  expect(image).toHaveAttribute("src", "/minus-button.png");
+  expect(image).toHaveAttribute("src", "/remove-item.png");
 });
 
 test("checkbox is rendered once", () => {
