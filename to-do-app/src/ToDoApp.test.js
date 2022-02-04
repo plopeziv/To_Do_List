@@ -130,7 +130,7 @@ test("renders remove buttons for lists", async () => {
   expect(button.prop('src')).toEqual("./remove-list.png");
  })
 
-test("removes active list integration test", async () => {
+test("removes active list on click integration test", async () => {
   const spy = jest.spyOn(ToDoApp.prototype, "deleteActiveList");
   const wrapper = shallow(<ToDoApp/>);
 

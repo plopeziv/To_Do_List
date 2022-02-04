@@ -1,5 +1,5 @@
 import ListView from './ListView/ListView';
-import NewList from './NewList';
+import NewList from './ListView/NewList';
 import './ToDoApp.css';
 import React, { Component } from 'react';
 
