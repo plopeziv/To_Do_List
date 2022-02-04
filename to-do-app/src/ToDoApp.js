@@ -60,10 +60,10 @@ render() {
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
-        <div className="Pedro">
-          <img className= "Remove-List-Image" src="./remove-2.png"/>
+        <div className="Title-Tab">
+          <img className= "List-Image" src="./remove-2.png"/>
           <ul key={entry} onClick={() => 
-          this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
+            this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
         </div>
       ): <ul>No List Found</ul>;
 
@@ -76,6 +76,11 @@ render() {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <div className="Title-Tab">
+                <img className="List-Image" src="./add-2.png"/>
+                <input className="Title-Input" type="text" value="Dummy Value" onChange={()=>"This value has changed"}
+                  placeholder='Enter New List'></input>
+              </div>
               {lists}
             </a>
           </div>
