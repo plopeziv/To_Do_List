@@ -8,7 +8,7 @@ class ToDoApp extends Component {
     super(props);
 
     this.state = {
-      jsonData: [],
+      toDoLists: [],
       isLoaded: false
     }
 
@@ -18,15 +18,15 @@ class ToDoApp extends Component {
     this.getAllListsHandler = this.getAllLists.bind(this);
   }
   
-  filterJson(title) {
-    const activeList = this.state.jsonData.filter((json) => {
-      return json.title === title});
+  filterLists(title) {
+    const activeList = this.state.toDoLists.filter((list) => {
+      return list.title === title});
 
     return activeList[0];
   }
 
   getTitles() {
-    return this.state.jsonData.map(entry => entry.title);
+    return this.state.toDoLists.map(entry => entry.title);
   }
 
   changeActiveList(list) {
@@ -49,9 +49,10 @@ class ToDoApp extends Component {
   getAllLists() {
     fetch("http://localhost:3001/lists/")
     .then(response => response.json())
-    .then(json => {
+    .then(json => json.sort((x,y) => y.id - x.id))
+    .then(lists => {
       this.setState({
-        jsonData: json,
+        toDoLists: lists,
         isLoaded: true
       })
     })
@@ -76,7 +77,7 @@ class ToDoApp extends Component {
         <div className="Title-Tab">
           <img className= "List-Image" src="./remove-list.png"/>
           <ul key={entry} onClick={() => 
-            this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
+            this.changeActiveList(this.filterLists(entry))}>{entry}</ul>
         </div>
       ): <ul>No List Found</ul>;
 
