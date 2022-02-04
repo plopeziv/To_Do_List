@@ -28,10 +28,10 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-test("renders 'No List Found' if lists has not loaded", () => {
+test("does not renders list tab if lists has not loaded", () => {
   render(<ToDoApp />);
 
-  expect(screen.getByRole('list')).toHaveTextContent("No List Found");
+  expect(screen.getByRole('list')).toHaveTextContent("");
 });
 
 test("renders ToDo lists titles in reverse order", async () => {
@@ -117,4 +117,30 @@ test("calls the putActiveList integration test", async () => {
   wrapper.find("button").simulate("click");
 
   expect(ToDoApp.prototype.putActiveList).toHaveBeenCalledTimes(1);
+})
+
+test("renders remove buttons for lists", async () => {
+  const wrapper = shallow(<ToDoApp/>);
+
+  await act(async () => {
+    render(<ToDoApp />);
+  });
+
+  const button = wrapper.find('img').first();
+  expect(button.prop('src')).toEqual("./remove-list.png");
+ })
+
+test("removes active list integration test", async () => {
+  const spy = jest.spyOn(ToDoApp.prototype, "deleteActiveList");
+  const wrapper = shallow(<ToDoApp/>);
+
+  await act(async () => {
+    render(<ToDoApp />);
+  });
+
+  const button = wrapper.find('img').first();
+
+  button.simulate('click');
+
+  expect(ToDoApp.prototype.deleteActiveList).toHaveBeenCalledTimes(1);
 })

@@ -16,6 +16,7 @@ class ToDoApp extends Component {
     this.saveActiveListHander = this.changeActiveList.bind(this);
     this.createNewListHandler = this.postNewList.bind(this);
     this.getAllListsHandler = this.getAllLists.bind(this);
+    this.deleteListHandler = this.deleteActiveList.bind(this);
   }
   
   filterLists(title) {
@@ -44,6 +45,22 @@ class ToDoApp extends Component {
     const url = `http://localhost:3001/lists/`;
 
     return fetch(url, {method: "POST", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
+  }
+
+  deleteActiveList() {
+    this.deleteList();
+    this.getAllLists();
+  }
+
+  deleteList() {
+    if (this.state.activeList == undefined) {
+      return;
+    }
+
+    let list = this.state.activeList;
+    const url = `http://localhost:3001/lists/${list.id}`;
+
+    fetch(url, {method: "DELETE", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
   }
 
   getAllLists() {
@@ -75,11 +92,11 @@ class ToDoApp extends Component {
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <div className="Title-Tab">
-          <img className= "List-Image" src="./remove-list.png"/>
+          <img className= "List-Image" src="./remove-list.png" onClick={this.deleteListHandler}/>
           <ul key={entry} onClick={() => 
             this.changeActiveList(this.filterLists(entry))}>{entry}</ul>
         </div>
-      ): <ul>No List Found</ul>;
+      ): <ul></ul>;
 
     return (
       <div className="App">
