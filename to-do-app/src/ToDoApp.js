@@ -49,6 +49,8 @@ class ToDoApp extends Component {
 
   deleteActiveList() {
     this.deleteList();
+    this.changeActiveList(undefined);
+    this.setState({ isLoaded: false })
     this.getAllLists();
   }
 
@@ -60,7 +62,7 @@ class ToDoApp extends Component {
     let list = this.state.activeList;
     const url = `http://localhost:3001/lists/${list.id}`;
 
-    fetch(url, {method: "DELETE", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
+    return fetch(url, {method: "DELETE", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
   }
 
   getAllLists() {
@@ -91,9 +93,9 @@ class ToDoApp extends Component {
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
-        <div className="Title-Tab">
+        <div key={entry} className="Title-Tab">
           <img className= "List-Image" src="./remove-list.png" onClick={this.deleteListHandler}/>
-          <ul key={entry} onClick={() => 
+          <ul onClick={() => 
             this.changeActiveList(this.filterLists(entry))}>{entry}</ul>
         </div>
       ): <ul></ul>;
