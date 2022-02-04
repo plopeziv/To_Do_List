@@ -8,7 +8,7 @@ test("renders add button image", () => {
 
   const image = screen.getByRole("img");
 
-  expect(image).toHaveAttribute("src", "/plus.png");
+  expect(image).toHaveAttribute("src", "/add-item.png");
 });
 
 test("renders form for a new item", () => {

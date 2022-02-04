@@ -1,4 +1,5 @@
 import ListView from './ListView/ListView';
+import NewList from './NewList';
 import './ToDoApp.css';
 import React, { Component } from 'react';
 
@@ -13,6 +14,8 @@ class ToDoApp extends Component {
 
     this.submitHandler = this.putActiveList.bind(this);
     this.saveActiveListHander = this.changeActiveList.bind(this);
+    this.createNewListHandler = this.postNewList.bind(this);
+    this.getAllListsHandler = this.getAllLists.bind(this);
   }
   
   filterJson(title) {
@@ -37,7 +40,13 @@ class ToDoApp extends Component {
     return fetch(url, {method: "PUT", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
   }
 
-  componentDidMount() {
+  postNewList(list) {
+    const url = `http://localhost:3001/lists/`;
+
+    return fetch(url, {method: "POST", headers: new Headers({'content-type': 'application/json'}), body: JSON.stringify(list)});
+  }
+
+  getAllLists() {
     fetch("http://localhost:3001/lists/")
     .then(response => response.json())
     .then(json => {
@@ -48,7 +57,11 @@ class ToDoApp extends Component {
     })
   }
 
-render() {
+  componentDidMount() {
+    this.getAllLists();
+  }
+
+  render() {
     let titles = this.getTitles();
     let isDisabled;
    
@@ -61,7 +74,7 @@ render() {
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <div className="Title-Tab">
-          <img className= "List-Image" src="./remove-2.png"/>
+          <img className= "List-Image" src="./remove-list.png"/>
           <ul key={entry} onClick={() => 
             this.changeActiveList(this.filterJson(entry))}>{entry}</ul>
         </div>
@@ -76,11 +89,10 @@ render() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="Title-Tab">
-                <img className="List-Image" src="./add-2.png"/>
-                <input className="Title-Input" type="text" value="Dummy Value" onChange={()=>"This value has changed"}
-                  placeholder='Enter New List'></input>
-              </div>
+              <NewList 
+                createList = {this.createNewListHandler}
+                getAllLists = {this.getAllListsHandler}
+              />
               {lists}
             </a>
           </div>

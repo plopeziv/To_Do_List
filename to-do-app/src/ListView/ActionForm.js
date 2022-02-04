@@ -28,7 +28,7 @@ class ActionForm extends Component {
   render() {
     return (
         <div className="List-Item-Container">
-            <img src="/plus.png" 
+            <img src="/add-item.png" 
               className="Action-Button" 
               onClick={this.handlePlus}>
             </img>

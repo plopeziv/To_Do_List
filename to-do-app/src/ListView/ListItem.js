@@ -24,7 +24,7 @@ class ListItem extends Component {
   render() {
     return (
         <div className="List-Item-Container">
-            <img src="/minus-button.png" 
+            <img src="/remove-item.png" 
             className="Action-Button"
             onClick={this.handleDelete}></img>
             <div className = "To-Do-Space">{this.props.itemProperties.toDoItem}</div>
