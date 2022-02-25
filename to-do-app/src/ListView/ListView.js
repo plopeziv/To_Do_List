@@ -3,9 +3,6 @@ import ActionForm from './ActionForm';
 import React, { Component } from 'react';
 
 class ListView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let view;

@@ -55,7 +55,7 @@ class ToDoApp extends Component {
   }
 
   deleteList() {
-    if (this.state.activeList == undefined) {
+    if (this.state.activeList === undefined) {
       return;
     }
 
@@ -94,7 +94,11 @@ class ToDoApp extends Component {
     let lists = this.state.isLoaded ? titles.map(
       entry => 
         <div key={entry} className="Title-Tab">
-          <img className= "List-Image" src="./remove-list.png" onClick={this.deleteListHandler}/>
+          <img
+          alt="Minus-Clipboard" 
+          className= "List-Image" 
+          src="./remove-list.png" 
+          onClick={this.deleteListHandler} />
           <ul onClick={() => 
             this.changeActiveList(this.filterLists(entry))}>{entry}</ul>
         </div>

@@ -12,7 +12,7 @@ class NewList extends Component {
   }
   
   createNewList () {
-    if (this.state.inputValue == "") {
+    if (this.state.inputValue === "") {
       return;
     }
     
@@ -26,7 +26,11 @@ class NewList extends Component {
   render() {
     return (
         <div className="Title-Tab">
-            <img className="List-Image" src="./add-list.png" onClick={this.imageClickHandler}/>
+            <img
+            alt="Plus-Clipboard" 
+            className="List-Image" 
+            src="./add-list.png" 
+            onClick={this.imageClickHandler} />
             <input 
                 className="Title-Input" type="text" 
                 value= {this.state.inputValue} 

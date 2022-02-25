@@ -12,7 +12,7 @@ class ActionForm extends Component {
   }
   
   cilckAction() {
-    if (this.state.actionFormValue == "") {
+    if (this.state.actionFormValue === "") {
       return;
     }
 
@@ -29,6 +29,7 @@ class ActionForm extends Component {
     return (
         <div className="List-Item-Container">
             <img src="/add-item.png" 
+              alt = "Plus-Sign"
               className="Action-Button" 
               onClick={this.handlePlus}>
             </img>

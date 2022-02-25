@@ -15,7 +15,7 @@ class ListItem extends Component {
   removeListItem () {
     let removalItem = this.props.itemProperties.toDoItem;
     let remainingItems = this.props.activeList.items.filter((item) => {
-        return item.toDoItem != removalItem});
+        return item.toDoItem !== removalItem});
 
     this.props.activeList.items = remainingItems;
     this.props.saveActiveList(this.props.activeList);
@@ -24,7 +24,8 @@ class ListItem extends Component {
   render() {
     return (
         <div className="List-Item-Container">
-            <img src="/remove-item.png" 
+            <img src="/remove-item.png"
+            alt="Minus-Sign" 
             className="Action-Button"
             onClick={this.handleDelete}></img>
             <div className = "To-Do-Space">{this.props.itemProperties.toDoItem}</div>
