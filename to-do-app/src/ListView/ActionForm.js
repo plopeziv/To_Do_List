@@ -1,43 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class ActionForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state ={
-      actionFormValue: ""
-    }
-
-    this.handlePlus = this.cilckAction.bind(this);
-  }
+const ActionForm = ( { activeList, saveActiveList } ) => {
+  const [itemName, setItemName] = useState("")
   
-  cilckAction() {
-    if (this.state.actionFormValue == "") {
+  const addItem = () => {
+    if (itemName === "") {
       return;
     }
 
-    let newItem = {"toDoItem": this.state.actionFormValue, "completed": false};
-    let id = this.props.activeList.items.length;
+    let newItem = {"toDoItem": itemName, "completed": false};
+    let id = activeList.items.length;
 
-    this.props.activeList.items[id] = newItem;
-    this.props.saveActiveList(this.props.activeList);
+    activeList.items[id] = newItem;
+    saveActiveList(activeList);
   
-    this.setState({actionFormValue: ""});
+    setItemName("");
   }
 
-  render() {
     return (
         <div className="List-Item-Container">
             <img src="/add-item.png" 
+              alt = "Plus-Sign"
               className="Action-Button" 
-              onClick={this.handlePlus}>
+              onClick={addItem}>
             </img>
             <div className = "To-Do-Space">
               <form className='Action-Form'>
                 <input 
                   className="Action-Input" type="text" 
-                  value={this.state.actionFormValue} placeholder='Enter New To-Do Item'
-                  onChange = {event => this.setState({actionFormValue: event.target.value})}>
+                  value={itemName} placeholder='Enter New To-Do Item'
+                  onChange = {event => setItemName(event.target.value)}>
                 </input>
               </form>
             </div>
@@ -45,6 +37,5 @@ class ActionForm extends Component {
         </div>
     );
   }
-}
 
 export default ActionForm;

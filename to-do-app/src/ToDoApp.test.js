@@ -2,7 +2,7 @@ import ToDoApp from './ToDoApp';
 import React from 'react';
 import { shallow } from "enzyme";
 import { act } from "react-dom/test-utils";
-import { render, screen } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 
 beforeEach(() => {
   const fakeJson = 
@@ -144,3 +144,18 @@ test("removes active list on click integration test", async () => {
 
   expect(ToDoApp.prototype.deleteActiveList).toHaveBeenCalledTimes(1);
 })
+
+test("adding item in action form updates items in list", async () => {
+
+  render(<ToDoApp />);
+  const firstList = await screen.findByText(/First Test Title/i);
+  fireEvent.click(firstList);
+
+  fireEvent.change(screen.getAllByRole("textbox")[1], { target: { value: 'Third Item' } });
+  fireEvent.click(screen.getByAltText(/Plus-Sign/i));
+
+  expect(screen.getByText(/First Item/i)).toBeInTheDocument();
+  expect(screen.getByText(/Second Item/i)).toBeInTheDocument();
+  expect(screen.getByText(/Third Item/i)).toBeInTheDocument();
+  expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+});

@@ -1,38 +1,31 @@
 import ListItem from './ListItem';
 import ActionForm from './ActionForm';
-import React, { Component } from 'react';
+import React from 'react';
 
-class ListView extends Component {
-  constructor(props) {
-    super(props);
+const ListView = ({ activeList, saveActiveList }) => {
+
+  if (!activeList) {
+    return <div className="List-View">
+      <div className='Logo-Container'>
+        <img src="/8L.png" className="App-logo" alt="logo" />
+      </div>
+    </div>
   }
 
-  render() {
-    let view;
-
-    if (this.props.activeList === undefined) {
-      view = <div className='Logo-Container'> <img src="/8L.png" className="App-logo" alt="logo" /></div>;
-    } else {
-        const items = this.props.activeList.items.map(
-        entry => <ListItem 
-          key={entry.toDoItem} 
-          activeList = {this.props.activeList}
-          saveActiveList = {this.props.saveActiveList}
-          itemProperties = {entry}>
-        </ListItem>)
-      
-      view = <>
-        <ActionForm activeList = {this.props.activeList} saveActiveList = {this.props.saveActiveList}/>
-        {items}
-      </>
-    }
-
-    return (
-        <div className="List-View">
-          {view}
-        </div>
-    );
-  }
+  return (
+      <div className="List-View">
+        <ActionForm activeList={activeList} saveActiveList={saveActiveList} />
+        {activeList.items.map(entry => ( 
+          <ListItem 
+            key={entry.toDoItem} 
+            activeList={activeList}
+            saveActiveList={saveActiveList}
+            itemProperties={entry}>
+          </ListItem>
+          )
+        )}
+      </div>
+  );
 }
 
 export default ListView;
