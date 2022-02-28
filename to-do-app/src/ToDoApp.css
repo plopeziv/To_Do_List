@@ -49,17 +49,6 @@
 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .List-Item-Button{
   width: 7%;
   height: 100%;
@@ -115,13 +104,11 @@
   min-width: 350px;
   width: 65vw;
   max-width: 900px;
-  height: 5.5vh;
-  border-radius: 16px;
+  height: 6.5vh;
+  border-radius: 12px;
   display: flex;
-  white-space: nowrap;
-  flex-wrap: nowrap;
+  flex-direction: row;
   overflow: scroll;
-  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -144,7 +131,9 @@
   border-radius: 10px;
   margin-right: 10px;
   padding-right: 9px;
-  vertical-align: middle;
+  display:flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .To-Do-Space{
@@ -156,7 +145,7 @@
 }
 
 .To-Do-View {
-  background-color: azure;
+  background-color: #f0ffff;
   min-width: 350px;
   max-width: 900px;
   width: 65vw;

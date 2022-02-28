@@ -105,20 +105,14 @@ class ToDoApp extends Component {
       ): <ul></ul>;
 
     return (
-      <div className="App">
-        <header className="App-header">
+        <header
+          class='tw-min-h-screen tw-bg-[#282c34] tw-flex tw-flex-col tw-items-center tw-justify-center tw-text-xl md:tw-text-3xl'>
           <div className="Title-Bar">
-            <a
-              className="App-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
               <NewList 
                 createList = {this.createNewListHandler}
                 getAllLists = {this.getAllListsHandler}
               />
               {lists}
-            </a>
           </div>
           <div className='To-Do-View'>
             <ListView
@@ -126,9 +120,13 @@ class ToDoApp extends Component {
               saveActiveList = {this.saveActiveListHander}
             />
           </div>
-          <button className='Submit-Button' disabled={isDisabled} onClick={this.submitHandler}>Submit</button>
+          <button className='Submit-Button' 
+          disabled={isDisabled} 
+          onClick={this.submitHandler}>
+            Submit
+          </button>
         </header>
-      </div>);
+      );
   }
 }
 

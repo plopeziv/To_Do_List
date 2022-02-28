@@ -9,12 +9,18 @@ module.exports = {
   },
   theme: {
     sceens: {
-      tablet: `960px`,
-      desktop: `1248px`,
+      sm: `375px`,
+      md: `768px`,
+      lg: `1024px`,
+      xl: `1400px`,
+    },
+    height: {
+      '1/20': '5%',
+      '1/10': '10%',
     },
     colors: {
       white: '#FFFFFF',
-      'pedros-color': '#61dafb'
+      'pedros-color': '#61dafb',
     },
     extend: {},
   },
