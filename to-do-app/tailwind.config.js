@@ -1,6 +1,5 @@
 module.exports = {
   mode: "jit",
-  prefix: "tw-",
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -15,8 +14,12 @@ module.exports = {
       xl: `1400px`,
     },
     height: {
-      '1/20': '5%',
-      '1/10': '10%',
+      '1/20vh': '5vh',
+      '13/200vh': '6.5vh',
+    },
+    width: {
+      '13/20': '65%',
+      '10/12': '83.333%'
     },
     colors: {
       white: '#FFFFFF',

@@ -106,8 +106,9 @@ class ToDoApp extends Component {
 
     return (
         <header
-          class='tw-min-h-screen tw-bg-[#282c34] tw-flex tw-flex-col tw-items-center tw-justify-center tw-text-xl md:tw-text-3xl'>
-          <div className="Title-Bar">
+          class='min-h-screen bg-[#282c34] flex flex-col items-center justify-center text-xl md:text-3xl'>
+          <div 
+          class='bg-pedros-color flex rounded-xl overflow-scroll mb-3.5 w-10/12 md:w-13/20 max-w-4xl h-1/20vh lg:h-13/200vh'>
               <NewList 
                 createList = {this.createNewListHandler}
                 getAllLists = {this.getAllListsHandler}

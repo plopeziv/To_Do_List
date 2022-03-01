@@ -100,17 +100,6 @@
   font-size: calc(15px + 2vmin);
 }
 
-.Title-Bar{
-  min-width: 350px;
-  width: 65vw;
-  max-width: 900px;
-  height: 6.5vh;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: row;
-  overflow: scroll;
-  margin-bottom: 10px;
-}
 
 .Title-Input{
   font-size: calc(10px + 2vmin);
