@@ -16,6 +16,7 @@ module.exports = {
     height: {
       '1/20vh': '5vh',
       '13/200vh': '6.5vh',
+      '29/50vh':'58vh'
     },
     width: {
       '13/20': '65%',

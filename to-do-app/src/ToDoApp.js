@@ -108,14 +108,15 @@ class ToDoApp extends Component {
         <header
           class='min-h-screen bg-[#282c34] flex flex-col items-center justify-center text-xl md:text-3xl'>
           <div 
-          class='bg-pedros-color flex rounded-xl overflow-scroll mb-3.5 w-10/12 md:w-13/20 max-w-4xl h-1/20vh lg:h-13/200vh'>
+            class='flex rounded-xl overflow-scroll mb-3.5 w-10/12 md:w-13/20 max-w-4xl h-1/20vh lg:h-13/200vh'>
               <NewList 
                 createList = {this.createNewListHandler}
                 getAllLists = {this.getAllListsHandler}
               />
               {lists}
           </div>
-          <div className='To-Do-View'>
+          <div
+          class='bg-[#f0ffff] flex items-center justify-center rounded-xl h-29/50vh w-10/12 md:w-13/20 max-w-4xl' >
             <ListView
               activeList = {this.state.activeList}
               saveActiveList = {this.saveActiveListHander}

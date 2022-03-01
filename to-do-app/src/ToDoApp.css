@@ -133,19 +133,6 @@
   justify-content: center;
 }
 
-.To-Do-View {
-  background-color: #f0ffff;
-  min-width: 350px;
-  max-width: 900px;
-  width: 65vw;
-  height: 58vh;
-  border-radius: 12px;
-  opacity: 0.91;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 ul {
   display: contents;
 }
