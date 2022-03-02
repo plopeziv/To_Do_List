@@ -33,7 +33,7 @@ class NewList extends Component {
             src="./add-list.png" 
             onClick={this.imageClickHandler} />
             <input 
-                className="Title-Input"  
+                class="text-[#61dafb] text-center bg-transparent text-xl w-40 md:text-3xl md:w-56 border-transparent box-border outline-none"  
                 type="text" 
                 value= {this.state.inputValue} 
                 onChange={event => this.setState({inputValue: event.target.value})}

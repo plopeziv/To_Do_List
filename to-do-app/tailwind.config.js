@@ -13,10 +13,6 @@ module.exports = {
       lg: `1024px`,
       xl: `1400px`,
     },
-    colors: {
-      white: '#FFFFFF',
-      'pedros-color': '#61dafb',
-    },
     extend: {
       height: {
         '38vmin': '38vmin',

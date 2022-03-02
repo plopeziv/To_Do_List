@@ -62,19 +62,6 @@
   justify-content: space-evenly;
 }
 
-
-.Title-Input{
-  font-size: calc(10px + 2vmin);
-  color: #61dafb;
-  width: calc(180px + 2vmin);
-  box-sizing: border-box;
-  border: transparent;
-  outline: none;
-  background: transparent;
-  font-family: inherit;
-  text-align: center;
-}
-
 .To-Do-Space{
   width: 80%;
   overflow: scroll;
