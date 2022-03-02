@@ -122,7 +122,8 @@ class ToDoApp extends Component {
               saveActiveList = {this.saveActiveListHander}
             />
           </div>
-          <button className='Submit-Button' 
+          <button
+          class='mt-4 rounded-xl w-14/20 md:w-11/20 max-w-3xl h-7/100vh text-base md:text-2xl xl:text-4xl' 
           disabled={isDisabled} 
           onClick={this.submitHandler}>
             Submit

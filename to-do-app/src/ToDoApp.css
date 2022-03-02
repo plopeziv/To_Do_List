@@ -90,16 +90,6 @@
   margin-top: 7px;
 }
 
-.Submit-Button{
-  margin-top: 2.5vh;
-  height:7vh;
-  width: 55vw;
-  min-width: 296px;
-  max-width: 780px;
-  border-radius: 12px;
-  font-size: calc(15px + 2vmin);
-}
-
 
 .Title-Input{
   font-size: calc(10px + 2vmin);
