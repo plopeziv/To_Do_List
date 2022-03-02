@@ -93,10 +93,11 @@ class ToDoApp extends Component {
     
     let lists = this.state.isLoaded ? titles.map(
       entry => 
-        <div key={entry} className="Title-Tab">
+        <div key={entry} 
+          class="bg-[#4c535a] text-[#61dafb] flex items-center whitespace-nowrap rounded-lg pr-2.5 mr-2.5">
           <img
           alt="Minus-Clipboard" 
-          className= "List-Image" 
+          class= "h-2/3 ml-1.5 mr-3" 
           src="./remove-list.png" 
           onClick={this.deleteListHandler} />
           <ul onClick={() => 

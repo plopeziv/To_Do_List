@@ -25,14 +25,16 @@ class NewList extends Component {
   
   render() {
     return (
-        <div className="Title-Tab">
+        <div 
+          class="bg-[#4c535a] text-[#61dafb] flex items-center whitespace-nowrap rounded-lg pr-2.5 mr-2.5">
             <img
             alt="Plus-Clipboard" 
-            className="List-Image" 
+            class="h-2/3 ml-2 mr-1" 
             src="./add-list.png" 
             onClick={this.imageClickHandler} />
             <input 
-                className="Title-Input" type="text" 
+                className="Title-Input"  
+                type="text" 
                 value= {this.state.inputValue} 
                 onChange={event => this.setState({inputValue: event.target.value})}
                 placeholder='Enter New List'>     

@@ -13,12 +13,6 @@ module.exports = {
       lg: `1024px`,
       xl: `1400px`,
     },
-    height: {
-      '1/20vh': '5vh',
-      '13/200vh': '6.5vh',
-      '7/100vh': '7vh',
-      '29/50vh':'58vh',
-    },
     width: {
       '9/20': '45',
       '11/20': '55%',
@@ -31,7 +25,14 @@ module.exports = {
       white: '#FFFFFF',
       'pedros-color': '#61dafb',
     },
-    extend: {},
+    extend: {
+      height: {
+        '1/20vh': '5vh',
+        '13/200vh': '6.5vh',
+        '7/100vh': '7vh',
+        '29/50vh':'58vh',
+      },
+    },
   },
   plugins: [],
 }

@@ -83,14 +83,6 @@
   justify-content: center;
 }
 
-.List-Image{
-  height: calc(5px + 2vmin);
-  margin-right: 10px;
-  margin-left: 8px;
-  margin-top: 7px;
-}
-
-
 .Title-Input{
   font-size: calc(10px + 2vmin);
   color: #61dafb;
@@ -101,18 +93,6 @@
   background: transparent;
   font-family: inherit;
   text-align: center;
-}
-
-.Title-Tab{
-  background-color: #4c535a;
-  color: #61dafb;
-  height: 100%;
-  border-radius: 10px;
-  margin-right: 10px;
-  padding-right: 9px;
-  display:flex;
-  align-items: center;
-  white-space: nowrap;
 }
 
 .To-Do-Space{
