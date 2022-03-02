@@ -8,7 +8,13 @@ class ListView extends Component {
     let view;
 
     if (this.props.activeList === undefined) {
-      view = <div className='Logo-Container'> <img src="/8L.png" className="App-logo" alt="logo" /></div>;
+      view = <div 
+        class="h-full flex items-center justify-center" > 
+        <img 
+          class="h-38vmin pointer-events-none" 
+          src="/8L.png" 
+          alt="logo" />  
+      </div>;
     } else {
         const items = this.props.activeList.items.map(
         entry => <ListItem 
@@ -25,7 +31,8 @@ class ListView extends Component {
     }
 
     return (
-        <div className="List-View">
+        <div 
+          class="h-full w-full overflow-scroll mt-2">
           {view}
         </div>
     );
