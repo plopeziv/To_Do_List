@@ -15,7 +15,10 @@ module.exports = {
     },
     extend: {
       height: {
+        '1/10': '10%',
+
         '38vmin': '38vmin',
+
         '1/20vh': '5vh',
         '13/200vh': '6.5vh',
         '7/100vh': '7vh',

@@ -23,15 +23,20 @@ class ListItem extends Component {
   
   render() {
     return (
-        <div className="List-Item-Container">
+        <div
+          class="bg-[#E9F6FC] rounded-lg mb-px h-1/10 flex items-center justify-around" >
             <img src="/remove-item.png"
             alt="Minus-Sign" 
-            className="Action-Button"
+            class="h-1/2"
             onClick={this.handleDelete}></img>
-            <div className = "To-Do-Space">{this.props.itemProperties.toDoItem}</div>
-            <div className = "List-Item-Button">
+            <div 
+            class= "w-4/5 flex items-center justify-center overflow-scroll">
+              {this.props.itemProperties.toDoItem}
+            </div>
+            <div 
+              className = "h-full w-1/12 flex items-center justify-center">
                 <input 
-                    type="checkbox" className='List-Checkbox' 
+                    type="checkbox" 
                     defaultChecked={this.props.itemProperties.completed}
                     onChange={this.handleClick}>
                 </input>
